@@ -377,4 +377,42 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
-document.addEventListener("DOMContentLoaded", initGame);
+// 假設這是角色初始位置
+let player = { x: 5, y: 5 };
+
+// 移動函式
+function move(direction) {
+  switch (direction) {
+    case "up":
+      player.y -= 1;
+      break;
+    case "down":
+      player.y += 1;
+      break;
+    case "left":
+      player.x -= 1;
+      break;
+    case "right":
+      player.x += 1;
+      break;
+  }
+  console.log("角色位置:", player);
+  drawGame(); // 更新畫面（你原本的畫面更新函式）
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initGame(); // 初始化遊戲
+
+  document
+    .getElementById("upButton")
+    .addEventListener("click", () => movePlayer(0, -1));
+  document
+    .getElementById("downButton")
+    .addEventListener("click", () => movePlayer(0, 1));
+  document
+    .getElementById("leftButton")
+    .addEventListener("click", () => movePlayer(-1, 0));
+  document
+    .getElementById("rightButton")
+    .addEventListener("click", () => movePlayer(1, 0));
+});

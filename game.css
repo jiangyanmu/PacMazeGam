@@ -30,6 +30,39 @@ body {
   gap: 16px;
 }
 
+/* 手機控制按鈕 - 右下角 */
+.mobile-controls {
+  position: fixed; /* 固定在螢幕 */
+  bottom: 20px; /* 距離底部 */
+  right: 20px; /* 距離右側 */
+  text-align: center;
+  z-index: 10000; /* 確保在畫布上方 */
+  user-select: none;
+}
+
+/* 水平排列按鈕 */
+.horizontal-buttons {
+  display: flex;
+  justify-content: flex-end; /* 按鈕靠右排列 */
+  margin-top: 5px;
+}
+
+.mobile-controls button {
+  width: 60px;
+  height: 60px;
+  margin: 3px;
+  font-size: 24px;
+  border-radius: 10px;
+  border: none;
+  background-color: #f0f0f0;
+  box-shadow: 0 3px #999;
+}
+
+.mobile-controls button:active {
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
+}
+
 /* 分數視窗 */
 .score-window {
   background: linear-gradient(135deg, #ffffff, #e0e0e0);
