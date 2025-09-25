@@ -1,52 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2D 迷宮吃豆豆遊戲</title>
-    <meta name="description" content="經典 2D 迷宮吃豆豆遊戲，使用方向鍵控制主角收集所有小豆豆獲得勝利">
-    <link rel="stylesheet" href="game.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>迷宮吃豆豆遊戲</title>
+    <meta name="description" content="使用方向鍵控制主角收集豆豆，避開敵人！" />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
     <div class="game-container">
-        <div class="game-wrapper">
-            <!-- 分數視窗 -->
-            <div class="score-window">
-                <div class="score-header">遊戲分數</div>
-                <div class="score-value" id="scoreDisplay">0</div>
-                <div class="score-label">分</div>
-            </div>
+      <!-- 分數 -->
+      <div class="score-window">
+        <div class="score-value" id="scoreDisplay">0</div>
+        <div class="score-label">分</div>
+      </div>
 
-            <!-- 遊戲畫布容器 -->
-            <div class="canvas-container">
-                <canvas id="gameCanvas" width="500" height="525"></canvas>
-                
-                <!-- 勝利提示覆蓋層 -->
-                <div class="victory-overlay" id="victoryOverlay">
-                    <div class="victory-message">
-                        <div class="victory-title">你贏了！</div>
-                        <div class="victory-subtitle">按 Enter 鍵重新開始</div>
-                    </div>
-                </div>
-            </div>
+      <!-- 遊戲畫布 -->
+      <div class="canvas-container">
+        <canvas id="gameCanvas" width="500" height="525"></canvas>
 
-            <!-- 控制說明 -->
-            <div class="controls-info">
-                <div class="controls-title">控制說明</div>
-                <div class="controls-instructions">
-                    <div>使用方向鍵控制移動</div>
-                    <div>收集所有小豆豆獲得勝利</div>
-                    <div>勝利後按 Enter 鍵重新開始</div>
-                </div>
-            </div>
-
-            <!-- 重新開始按鈕 -->
-            <button class="restart-button" id="restartButton">
-                重新開始
-            </button>
+        <!-- 勝利提示 -->
+        <div class="victory-overlay" id="victoryOverlay">
+          <div class="message">你贏了！<br />按 Enter 重新開始</div>
         </div>
+
+        <!-- 失敗提示 -->
+        <div class="gameover-overlay" id="gameOverOverlay"></div>
+      </div>
+
+      <!-- 重新開始按鈕 -->
+      <button class="restart-button" id="restartButton">重新開始</button>
     </div>
 
     <script src="game.js"></script>
-</body>
+  </body>
 </html>
