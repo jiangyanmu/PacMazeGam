@@ -175,6 +175,25 @@ function movePlayer(dx, dy) {
 }
 
 function handleKeyPress(event) {
+  // 作弊碼：Ctrl + P 直接通關
+  if (event.ctrlKey && (event.key === "p" || event.key === "P")) {
+    event.preventDefault(); // 防止瀏覽器觸發列印功能
+
+    // 如果遊戲已經結束，則不執行
+    if (gameState.gameOver || gameState.gameWon) return;
+
+    // 計算剩餘豆豆的分數並加到總分
+    // 普通豆豆 +1 分，特殊豆豆 +5 分
+    const remainingScore = gameState.dots.length * 1 + gameState.specialDots.length * 5;
+    gameState.score += remainingScore;
+    updateScoreDisplay(); // 更新分數顯示
+
+    gameState.dots = [];
+    gameState.specialDots = [];
+    gameState.gameWon = true;
+    victoryOverlay.classList.add("show");
+  }
+
   switch (event.key) {
     case "ArrowUp":
       movePlayer(0, -1);
